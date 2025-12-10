@@ -52,7 +52,8 @@
         align-items: center;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 30px;
+        gap: 2rem;
       }
 
       .logo {
@@ -60,6 +61,8 @@
         font-weight: 800;
         color: var(--primary-color);
         text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
 
       .nav-menu {
@@ -67,14 +70,25 @@
         list-style: none;
         margin: 0;
         padding: 0;
-        gap: 2rem;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .nav-menu li {
+        white-space: nowrap;
       }
 
       .nav-menu a {
         text-decoration: none;
         color: var(--text-color);
         font-weight: 500;
-        padding: 0.5rem 0;
+        padding: 0.5rem 0.75rem;
+        transition: color 0.3s ease;
+        display: block;
+      }
+
+      .nav-menu a:hover {
+        color: var(--primary-color);
       }
 
       .cta-button {
@@ -86,6 +100,13 @@
         font-weight: 600;
         border: none;
         cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background-color 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background: #1e40af;
       }
 
       .cta-button.secondary {
@@ -520,6 +541,26 @@
       }
 
       /* Responsive */
+      @media (max-width: 1024px) {
+        .nav-menu {
+          gap: 1.5rem;
+        }
+
+        .nav-menu a {
+          padding: 0.5rem;
+          font-size: 0.95rem;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .cta-button {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.95rem;
+        }
+      }
+
       @media (max-width: 768px) {
         .hero h1 {
           font-size: 2.5rem;
@@ -543,6 +584,10 @@
 
         .nav-menu {
           display: none;
+        }
+
+        .logo {
+          font-size: 1.3rem;
         }
       }
     </style>
