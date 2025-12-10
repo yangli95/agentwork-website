@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://agentwork.me/sitemap.xml
+Sitemap: https://www.agentwork.me/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 10
