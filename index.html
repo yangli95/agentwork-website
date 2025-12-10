@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentWork - 让每个打工人拥有自己的AI团队</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #ea580c;
+        --text-color: #1e293b;
+        --light-gray: #f8fafc;
+        --gray-200: #e2e8f0;
+        --gray-600: #475569;
+      }
+
+      body {
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+        box-sizing: border-box;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--gray-200);
+        z-index: 1000;
+        padding: 1rem 0;
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2rem;
+      }
+
+      .nav-menu a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 0.5rem 0;
+      }
+
+      .cta-button {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+      }
+
+      .cta-button.secondary {
+        background: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 120px 0 80px;
+        text-align: center;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+        line-height: 1.2;
+      }
+
+      .hero .subtitle {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: var(--gray-600);
+      }
+
+      .hero .description {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: var(--gray-600);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-bottom: 4rem;
+      }
+
+      .hero-buttons .cta-button {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--text-color);
+      }
+
+      /* Social Proof */
+      .testimonials {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .testimonial {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-author {
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .testimonial-role {
+        font-size: 0.9rem;
+        color: var(--gray-600);
+        margin-bottom: 1rem;
+      }
+
+      /* Problem Section */
+      .problems {
+        background: var(--light-gray);
+      }
+
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .problem-card {
+        background: white;
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        text-align: center;
+        border-left: 4px solid #ef4444;
+      }
+
+      .problem-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .problem-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      /* Solutions */
+      .solutions {
+        background: white;
+      }
+
+      .solution-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .solution-card {
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+      }
+
+      .solution-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .solution-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      /* Use Cases */
+      .use-cases {
+        background: var(--light-gray);
+      }
+
+      .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .timeline {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+      }
+
+      .timeline h3 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.3rem;
+      }
+
+      .before {
+        border-left: 4px solid #ef4444;
+      }
+
+      .after {
+        border-left: 4px solid #22c55e;
+      }
+
+      .timeline-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .timeline-result {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-weight: 600;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .before .timeline-result {
+        background: #fee2e2;
+        color: #dc2626;
+      }
+
+      .after .timeline-result {
+        background: #dcfce7;
+        color: #16a34a;
+      }
+
+      /* Metrics */
+      .metrics {
+        background: white;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .metric-card {
+        text-align: center;
+        padding: 3rem 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+      }
+
+      .metric-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .metric-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      .metric-description {
+        color: var(--gray-600);
+      }
+
+      /* Pricing */
+      .pricing {
+        background: var(--light-gray);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .pricing-card {
+        background: white;
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+        text-align: center;
+        position: relative;
+      }
+
+      .pricing-card.popular {
+        border-color: var(--primary-color);
+        transform: scale(1.05);
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .price-unit {
+        color: var(--gray-600);
+        font-size: 1rem;
+      }
+
+      .pricing-features {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .pricing-features li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .pricing-features li:before {
+        content: '✅';
+        position: absolute;
+        left: 0;
+      }
+
+      /* FAQ */
+      .faq {
+        background: white;
+      }
+
+      .faq-list {
+        margin-top: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .faq-item {
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+
+      .faq-question {
+        padding: 1.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        background: var(--light-gray);
+      }
+
+      .faq-answer {
+        padding: 1.5rem;
+        color: var(--gray-600);
+      }
+
+      /* Final CTA */
+      .final-cta {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        text-align: center;
+        padding: 80px 0;
+      }
+
+      .final-cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .final-cta p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .final-cta .cta-button {
+        background: white;
+        color: var(--primary-color);
+        margin: 0 1rem;
+      }
+
+      .final-cta .cta-button.secondary {
+        background: transparent;
+        color: white;
+        border-color: white;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--text-color);
+        color: white;
+        padding: 60px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .footer-section a {
+        color: #94a3b8;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #374151;
+        color: #94a3b8;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .solution-grid,
+        .comparison,
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav-menu {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body style="">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="#" class="logo">AgentWork</a>
+        <ul class="nav-menu">
+          <li><a href="#features">产品功能</a></li>
+          <li><a href="#solutions">解决方案</a></li>
+          <li><a href="#pricing">定价</a></li>
+          <li><a href="#docs">文档</a></li>
+          <li><a href="#login">登录</a></li>
+        </ul>
+        <a href="#trial" class="cta-button">免费试用</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>让每个打工人，拥有自己的AI团队</h1>
+        <p class="subtitle">不再被动参会，不再只能接活。用AI Agent重新定义你的工作方式</p>
+        <p class="description">派AI代替你开会，分解任务给AI执行，从"任务终点"变成"AI团队管理者"</p>
+
+        <div class="hero-buttons">
+          <a href="#" class="cta-button">免费开始使用</a>
+          <a href="#" class="cta-button secondary">观看演示视频</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">12,538+</div>
+            <div>用户使用</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50,000+</div>
+            <div>小时会议时间节省</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">他们已经不再亲自开会了</h2>
+        <div class="testimonials">
+          <div class="testimonial">
+            <div class="testimonial-author">👤 张伟 | 产品经理</div>
+            <div class="testimonial-role">@ 某互联网公司</div>
+            <p>"每周12个会议压得我喘不过气，现在我派AI Agent参会，自己专注做产品设计。工作效率提升40%。"</p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-author">👤 李娜 | 市场运营</div>
+            <div class="testimonial-role">@ 某电商平台</div>
+            <p>"我创建了5个Agent帮我处理文案、数据分析、客服回复。现在我更像一个小团队的leader。"</p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-author">👤 王鹏 | 技术负责人</div>
+            <div class="testimonial-role">@ 某创业公司</div>
+            <p>"技术评审会、需求讨论会...Agent都能代劳。我终于有时间写代码了。"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section problems">
+      <div class="container">
+        <h2 class="section-title">你是否也深陷这些困境？</h2>
+        <div class="problem-grid">
+          <div class="problem-card">
+            <div class="problem-icon">🔴</div>
+            <h3 class="problem-title">会议地狱</h3>
+            <p>每周10+个会议<br>80%时间在开会<br>真正工作时间不足20%</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">🔴</div>
+            <h3 class="problem-title">永远被派活</h3>
+            <p>管理者开会分配任务<br>你只能被动接受<br>没有反抗余地</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">🔴</div>
+            <h3 class="problem-title">重复劳动</h3>
+            <p>60%工作都是机械重复<br>创造性工作被压缩<br>职业发展停滞</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="section solutions" id="features">
+      <div class="container">
+        <h2 class="section-title">AgentWork如何改变这一切</h2>
+        <div class="solution-grid">
+          <div class="solution-card">
+            <div class="solution-icon">🤖</div>
+            <h3 class="solution-title">派AI Agent代替你参会</h3>
+            <ul>
+              <li>AI Agent以你的名义参加会议</li>
+              <li>实时记录并理解会议内容</li>
+              <li>自动提取待办任务和关键决策</li>
+              <li>会后生成结构化纪要</li>
+            </ul>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon">🏭</div>
+            <h3 class="solution-title">5分钟创建专属AI团队</h3>
+            <ul>
+              <li>选择角色模板（文案、数据、项目管理...）</li>
+              <li>上传知识文档训练Agent</li>
+              <li>配置工具能力</li>
+              <li>一键部署使用</li>
+            </ul>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon">🗣️</div>
+            <h3 class="solution-title">主动召集AI讨论方案</h3>
+            <ul>
+              <li>不再被动等待开会</li>
+              <li>随时召集你的AI团队</li>
+              <li>多Agent协同讨论</li>
+              <li>快速产出解决方案</li>
+            </ul>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon">📊</div>
+            <h3 class="solution-title">像管理者一样管理工作</h3>
+            <ul>
+              <li>可视化任务看板</li>
+              <li>上游任务（接收）vs 下游任务（分配）</li>
+              <li>实时追踪Agent工作进度</li>
+              <li>人工介入关键决策点</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section use-cases">
+      <div class="container">
+        <h2 class="section-title">真实场景，真实效果</h2>
+        <h3 style="text-align: center; margin-bottom: 2rem; color: var(--gray-600)">产品经理小王的一天</h3>
+        <div class="comparison">
+          <div class="timeline before">
+            <h3>使用AgentWork前</h3>
+            <div class="timeline-item">
+              <span>8:30 - 周例会</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>9:30 - 需求评审会</span>
+              <span>1.5h</span>
+            </div>
+            <div class="timeline-item">
+              <span>11:00 - 跨部门协调会</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>12:00 - 午休</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>13:00 - 技术方案讨论</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>14:00 - 处理需求文档</span>
+              <span>2h</span>
+            </div>
+            <div class="timeline-item">
+              <span>16:00 - 客户反馈整理</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>17:00 - 准备汇报PPT</span>
+              <span>2h</span>
+            </div>
+            <div class="timeline-item">
+              <span>19:00 - 加班回家</span>
+              <span></span>
+            </div>
+            <div class="timeline-result">6小时开会，只有3小时做实际工作</div>
+          </div>
+
+          <div class="timeline after">
+            <h3>使用AgentWork后</h3>
+            <div class="timeline-item">
+              <span>8:30 - 查看AI会议纪要</span>
+              <span>15min</span>
+            </div>
+            <div class="timeline-item">
+              <span>8:45 - 给Agent分配任务</span>
+              <span>20min</span>
+            </div>
+            <div class="timeline-item">
+              <span>9:05 - 深度工作：产品设计</span>
+              <span>3h</span>
+            </div>
+            <div class="timeline-item">
+              <span>12:00 - 午休</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>13:00 - 深度工作：用户研究</span>
+              <span>2h</span>
+            </div>
+            <div class="timeline-item">
+              <span>15:00 - 审核Agent产出</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>16:00 - 关键决策和创造性工作</span>
+              <span>2h</span>
+            </div>
+            <div class="timeline-item">
+              <span>18:00 - 准时下班</span>
+              <span></span>
+            </div>
+            <div class="timeline-result">5小时深度工作，2小时管理Agent，准时下班</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="section metrics">
+      <div class="container">
+        <h2 class="section-title">数字证明一切</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-number">50%</div>
+            <div class="metric-title">会议时间节省</div>
+            <div class="metric-description">用户平均每周节省6小时会议时间</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">3x</div>
+            <div class="metric-title">工作效率提升</div>
+            <div class="metric-description">深度工作时间增加3倍</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">12,538+</div>
+            <div class="metric-title">活跃用户</div>
+            <div class="metric-description">已有12,538名打工人解放双手</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">14.8%</div>
+            <div class="metric-title">付费转化率</div>
+            <div class="metric-description">体验后14.8%的用户选择付费</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <h2 class="section-title">选择适合你的计划</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>免费版</h3>
+            <div class="price">¥0<span class="price-unit">/月</span></div>
+            <p>适合：体验产品</p>
+            <ul class="pricing-features">
+              <li>1个Agent</li>
+              <li>每周1场会议代理</li>
+              <li>基础任务分解</li>
+              <li>社区支持</li>
+            </ul>
+            <a href="#" class="cta-button">免费开始</a>
+          </div>
+
+          <div class="pricing-card popular">
+            <div class="popular-badge">⭐推荐</div>
+            <h3>打工人版</h3>
+            <div class="price">¥199<span class="price-unit">/月</span></div>
+            <p>适合：个人用户</p>
+            <ul class="pricing-features">
+              <li>5个Agent</li>
+              <li>无限会议代理</li>
+              <li>完整任务编排</li>
+              <li>反向会议室</li>
+              <li>知识库上传（500MB）</li>
+              <li>邮件支持</li>
+            </ul>
+            <a href="#" class="cta-button">立即订阅</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>团队长版</h3>
+            <div class="price">¥999<span class="price-unit">/月</span></div>
+            <p>适合：小团队</p>
+            <ul class="pricing-features">
+              <li>20个Agent</li>
+              <li>跨人员Agent协作</li>
+              <li>团队任务看板</li>
+              <li>知识库上传（5GB）</li>
+              <li>优先支持</li>
+              <li>定制培训</li>
+            </ul>
+            <a href="#" class="cta-button">联系销售</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+      <div class="container">
+        <h2 class="section-title">常见问题</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">Agent真的能代替我参会吗？</div>
+            <div class="faq-answer">
+              是的，AgentWork的AI
+              Agent可以加入各种会议平台（Zoom、腾讯会议、飞书等），实时记录会议内容，理解讨论重点，并自动提取待办任务。Agent会以"XXX的AI助手"身份参会，保证透明度。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">我的会议内容安全吗？</div>
+            <div class="faq-answer">
+              我们采用企业级安全标准，所有会议内容采用端到端加密传输和存储。您可以选择数据存储地区，并且有权随时删除所有会议记录。我们严格遵守数据保护法规。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">需要懂技术才能使用吗？</div>
+            <div class="faq-answer">
+              完全不需要！AgentWork专门为普通用户设计，提供可视化的Agent创建界面，只需5分钟就能创建专属AI助手。我们还提供详细的使用教程和客服支持。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">可以集成我们公司的系统吗？</div>
+            <div class="faq-answer">
+              可以！我们支持主流办公软件的集成，包括飞书、钉钉、企业微信、Slack、Microsoft
+              Teams等。企业版还提供API接口和定制集成服务。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">如何取消订阅？</div>
+            <div class="faq-answer">
+              您可以随时在账户设置中取消订阅，无需任何手续费。取消后您仍可使用至当前付费周期结束，之后自动转为免费版。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">有免费试用期吗？</div>
+            <div class="faq-answer">
+              是的！我们提供免费版本让您体验核心功能，付费版本也有14天免费试用期。试用期内您可以无限制使用所有功能，满意后再付费。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <h2>从今天起，不再只是任务的终点</h2>
+        <p>加入12,538名用户，开始管理你的AI团队</p>
+        <div>
+          <a href="#" class="cta-button">免费开始使用</a>
+          <a href="#" class="cta-button secondary">预约演示</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>产品</h4>
+            <a href="#">功能介绍</a>
+            <a href="#">定价方案</a>
+            <a href="#">更新日志</a>
+            <a href="#">路线图</a>
+          </div>
+          <div class="footer-section">
+            <h4>资源</h4>
+            <a href="#">使用文档</a>
+            <a href="#">API文档</a>
+            <a href="#">博客</a>
+            <a href="#">案例研究</a>
+          </div>
+          <div class="footer-section">
+            <h4>公司</h4>
+            <a href="#">关于我们</a>
+            <a href="#">招聘信息</a>
+            <a href="#">联系我们</a>
+            <a href="#">隐私政策</a>
+          </div>
+          <div class="footer-section">
+            <h4>社交媒体</h4>
+            <a href="#">微信公众号</a>
+            <a href="#">知乎</a>
+            <a href="#">小红书</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-bottom">© 2025 AgentWork. 让每个打工人拥有AI团队</div>
+      </div>
+    </footer>
+  
+
+</body></html>
