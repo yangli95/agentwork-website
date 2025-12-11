@@ -208,6 +208,7 @@
         font-weight: 500;
         margin-bottom: 1rem;
         color: var(--gray-600);
+        line-height: 1.5;
       }
 
       .hero .description {
@@ -217,6 +218,12 @@
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
+        line-height: 1.6;
+      }
+
+      /* Mobile line breaks - hide on desktop */
+      .mobile-br {
+        display: none;
       }
 
       .hero-buttons {
@@ -647,6 +654,19 @@
           font-size: 2.5rem;
         }
 
+        .hero .subtitle {
+          font-size: 1.2rem;
+        }
+
+        .hero .description {
+          font-size: 1rem;
+        }
+
+        /* Show mobile line breaks on small screens */
+        .mobile-br {
+          display: inline;
+        }
+
         .solution-grid,
         .comparison,
         .pricing-grid {
@@ -740,9 +760,9 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <h1>让每个打工人，拥有自己的AI团队</h1>
-        <p class="subtitle">不再被动参会，不再只能接活。用AI Agent重新定义你的工作方式</p>
-        <p class="description">派AI代替你开会，分解任务给AI执行，从"任务终点"变成"AI团队管理者"</p>
+        <h1>让每个打工人，<br class="mobile-br">拥有自己的AI团队</h1>
+        <p class="subtitle">不再被动参会，不再只能接活。<br class="mobile-br">用AI Agent重新定义你的工作方式</p>
+        <p class="description">派AI代替你开会，分解任务给AI执行，<br class="mobile-br">从"任务终点"变成"AI团队管理者"</p>
 
         <div class="hero-buttons">
           <a href="#" class="cta-button">免费开始使用</a>
@@ -765,7 +785,7 @@
     <!-- Social Proof -->
     <section class="section">
       <div class="container">
-        <h2 class="section-title">他们已经不再亲自开会了</h2>
+        <h2 class="section-title">他们已经<br class="mobile-br">不再亲自开会了</h2>
         <div class="testimonials">
           <div class="testimonial">
             <div class="testimonial-author">👤 张伟 | 产品经理</div>
@@ -789,7 +809,7 @@
     <!-- Problem Section -->
     <section class="section problems">
       <div class="container">
-        <h2 class="section-title">你是否也深陷这些困境？</h2>
+        <h2 class="section-title">你是否也<br class="mobile-br">深陷这些困境？</h2>
         <div class="problem-grid">
           <div class="problem-card">
             <div class="problem-icon">⚠️</div>
@@ -813,7 +833,7 @@
     <!-- Solutions -->
     <section class="section solutions" id="features">
       <div class="container">
-        <h2 class="section-title">AgentWork如何改变这一切</h2>
+        <h2 class="section-title">AgentWork<br class="mobile-br">如何改变这一切</h2>
         <div class="solution-grid">
           <div class="solution-card">
             <div class="solution-icon">🤖</div>

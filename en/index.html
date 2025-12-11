@@ -208,6 +208,7 @@
         font-weight: 500;
         margin-bottom: 1rem;
         color: var(--gray-600);
+        line-height: 1.5;
       }
 
       .hero .description {
@@ -217,6 +218,12 @@
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
+        line-height: 1.6;
+      }
+
+      /* Mobile line breaks - hide on desktop */
+      .mobile-br {
+        display: none;
       }
 
       .hero-buttons {
@@ -647,6 +654,19 @@
           font-size: 2.5rem;
         }
 
+        .hero .subtitle {
+          font-size: 1.2rem;
+        }
+
+        .hero .description {
+          font-size: 1rem;
+        }
+
+        /* Show mobile line breaks on small screens */
+        .mobile-br {
+          display: inline;
+        }
+
         .solution-grid,
         .comparison,
         .pricing-grid {
@@ -741,9 +761,9 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <h1>Build Your Own AI Team</h1>
-        <p class="subtitle">Stop Being Passive in Meetings. Redefine Your Work with AI Agents</p>
-        <p class="description">Send AI to meetings for you, delegate tasks to AI, transform from "task executor" to "AI team manager"</p>
+        <h1>Build Your Own <br class="mobile-br">AI Team</h1>
+        <p class="subtitle">Stop Being Passive in Meetings. <br class="mobile-br">Redefine Your Work with AI Agents</p>
+        <p class="description">Send AI to meetings for you, delegate tasks to AI, <br class="mobile-br">transform from "task executor" to "AI team manager"</p>
 
         <div class="hero-buttons">
           <a href="#" class="cta-button">Start Free</a>
@@ -766,7 +786,7 @@
     <!-- Social Proof -->
     <section class="section">
       <div class="container">
-        <h2 class="section-title">They're No Longer Attending Meetings in Person</h2>
+        <h2 class="section-title">They're No Longer <br class="mobile-br">Attending Meetings in Person</h2>
         <div class="testimonials">
           <div class="testimonial">
             <div class="testimonial-author">👤 Wei Zhang | Product Manager</div>
@@ -790,7 +810,7 @@
     <!-- Problem Section -->
     <section class="section problems">
       <div class="container">
-        <h2 class="section-title">Are You Also Trapped in These Challenges?</h2>
+        <h2 class="section-title">Are You Also Trapped <br class="mobile-br">in These Challenges?</h2>
         <div class="problem-grid">
           <div class="problem-card">
             <div class="problem-icon">⚠️</div>
@@ -814,7 +834,7 @@
     <!-- Solutions -->
     <section class="section solutions" id="features">
       <div class="container">
-        <h2 class="section-title">How AgentWork Changes Everything</h2>
+        <h2 class="section-title">How AgentWork <br class="mobile-br">Changes Everything</h2>
         <div class="solution-grid">
           <div class="solution-card">
             <div class="solution-icon">🤖</div>
