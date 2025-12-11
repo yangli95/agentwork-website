@@ -687,32 +687,35 @@
           display: none;
         }
 
+        /* Fix mobile navbar layout - logo left, lang+button right */
         .nav-content {
-          padding: 0 8px;
-          gap: 0.25rem;
-        }
-
-        .lang-switcher {
-          gap: 0.15rem;
-        }
-
-        .lang-separator {
-          font-size: 0.7rem;
-          margin: 0 -0.1rem;
-        }
-
-        .lang-link {
-          padding: 0.25rem 0.3rem;
-          font-size: 0.7rem;
+          padding: 0 10px;
+          gap: 0.5rem;
+          justify-content: flex-start;
         }
 
         .logo {
-          font-size: 0.95rem;
+          font-size: 1rem;
+          margin-right: auto;
+        }
+
+        .lang-switcher {
+          gap: 0.3rem;
+          margin-right: 0.5rem;
+        }
+
+        .lang-separator {
+          font-size: 0.8rem;
+        }
+
+        .lang-link {
+          padding: 0.3rem 0.4rem;
+          font-size: 0.8rem;
         }
 
         .cta-button {
-          padding: 0.45rem 0.7rem;
-          font-size: 0.75rem;
+          padding: 0.5rem 0.8rem;
+          font-size: 0.8rem;
           white-space: nowrap;
         }
       }
@@ -720,30 +723,31 @@
       /* Extra small mobile devices */
       @media (max-width: 480px) {
         .nav-content {
-          padding: 0 5px;
-          gap: 0.15rem;
-        }
-
-        .lang-switcher {
-          gap: 0.1rem;
-        }
-
-        .lang-separator {
-          font-size: 0.65rem;
-        }
-
-        .lang-link {
-          padding: 0.2rem 0.25rem;
-          font-size: 0.65rem;
+          padding: 0 8px;
+          gap: 0.4rem;
         }
 
         .logo {
-          font-size: 0.85rem;
+          font-size: 0.9rem;
+        }
+
+        .lang-switcher {
+          gap: 0.25rem;
+          margin-right: 0.4rem;
+        }
+
+        .lang-separator {
+          font-size: 0.75rem;
+        }
+
+        .lang-link {
+          padding: 0.25rem 0.35rem;
+          font-size: 0.75rem;
         }
 
         .cta-button {
-          padding: 0.4rem 0.6rem;
-          font-size: 0.7rem;
+          padding: 0.45rem 0.7rem;
+          font-size: 0.75rem;
         }
       }
     </style>
