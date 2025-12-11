@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>AgentWork - Build Your Own AI Team | AI Agent Collaboration Platform</title>
+    <meta name="title" content="AgentWork - Build Your Own AI Team | AI Agent Collaboration Platform">
+    <meta name="description" content="AgentWork is an AI Agent-powered personal productivity platform. Send AI to meetings for you, create your dedicated AI team, and transform from task executor to AI team manager. Boost productivity by 3x, save 50% meeting time.">
+    <meta name="keywords" content="AgentWork,AI Agent,artificial intelligence assistant,AI team,productivity,meeting assistant,task management,productivity tools,AI collaboration,smart office">
+    <meta name="author" content="AgentWork">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agentwork.me/en/">
+    <meta property="og:title" content="AgentWork - Build Your Own AI Team">
+    <meta property="og:description" content="Send AI to meetings for you, create your dedicated AI team, boost productivity by 3x. Join 12,538 users who have freed their hands.">
+    <meta property="og:image" content="https://agentwork.me/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="zh_CN">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://agentwork.me/en/">
+    <meta property="twitter:title" content="AgentWork - Build Your Own AI Team">
+    <meta property="twitter:description" content="Send AI to meetings for you, create your dedicated AI team, boost productivity by 3x.">
+    <meta property="twitter:image" content="https://agentwork.me/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://agentwork.me/en/">
+
+    <!-- Language Alternates -->
+    <link rel="alternate" hreflang="zh-CN" href="https://agentwork.me/" />
+    <link rel="alternate" hreflang="en" href="https://agentwork.me/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://agentwork.me/en/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #ea580c;
+        --text-color: #1e293b;
+        --light-gray: #f8fafc;
+        --gray-200: #e2e8f0;
+        --gray-600: #475569;
+      }
+
+      body {
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+        box-sizing: border-box;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--gray-200);
+        z-index: 1000;
+        padding: 1rem 0;
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 30px;
+        gap: 3rem;
+      }
+
+      .cta-button {
+        margin-left: 1rem;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-right: auto;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .nav-menu li {
+        white-space: nowrap;
+      }
+
+      .nav-menu a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 0.5rem 0.75rem;
+        transition: color 0.3s ease;
+        display: block;
+      }
+
+      .nav-menu a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Language Switcher */
+      .lang-switcher {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .lang-link {
+        text-decoration: none;
+        color: var(--gray-600);
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 0.5rem 0.75rem;
+        transition: color 0.3s ease;
+      }
+
+      .lang-link:hover {
+        color: var(--primary-color);
+      }
+
+      .lang-link.active {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .lang-separator {
+        color: var(--gray-200);
+        font-weight: 300;
+      }
+
+      .cta-button {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background-color 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background: #1e40af;
+      }
+
+      .cta-button.secondary {
+        background: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 220px 0 80px;
+        text-align: center;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+        line-height: 1.2;
+      }
+
+      .hero .subtitle {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: var(--gray-600);
+      }
+
+      .hero .description {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: var(--gray-600);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-bottom: 4rem;
+      }
+
+      .hero-buttons .cta-button {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--text-color);
+      }
+
+      /* Social Proof */
+      .testimonials {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .testimonial {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-author {
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .testimonial-role {
+        font-size: 0.9rem;
+        color: var(--gray-600);
+        margin-bottom: 1rem;
+      }
+
+      /* Problem Section */
+      .problems {
+        background: var(--light-gray);
+      }
+
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .problem-card {
+        background: white;
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        text-align: center;
+        border-left: 4px solid #ef4444;
+      }
+
+      .problem-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .problem-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      /* Solutions */
+      .solutions {
+        background: white;
+      }
+
+      .solution-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .solution-card {
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+      }
+
+      .solution-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .solution-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      /* Use Cases */
+      .use-cases {
+        background: var(--light-gray);
+      }
+
+      .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .timeline {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+      }
+
+      .timeline h3 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.3rem;
+      }
+
+      .before {
+        border-left: 4px solid #ef4444;
+      }
+
+      .after {
+        border-left: 4px solid #22c55e;
+      }
+
+      .timeline-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .timeline-result {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-weight: 600;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .before .timeline-result {
+        background: #fee2e2;
+        color: #dc2626;
+      }
+
+      .after .timeline-result {
+        background: #dcfce7;
+        color: #16a34a;
+      }
+
+      /* Metrics */
+      .metrics {
+        background: white;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .metric-card {
+        text-align: center;
+        padding: 3rem 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+      }
+
+      .metric-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .metric-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      .metric-description {
+        color: var(--gray-600);
+      }
+
+      /* Pricing */
+      .pricing {
+        background: var(--light-gray);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .pricing-card {
+        background: white;
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--gray-200);
+        text-align: center;
+        position: relative;
+      }
+
+      .pricing-card.popular {
+        border-color: var(--primary-color);
+        transform: scale(1.05);
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .price-unit {
+        color: var(--gray-600);
+        font-size: 1rem;
+      }
+
+      .pricing-features {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .pricing-features li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .pricing-features li:before {
+        content: '✅';
+        position: absolute;
+        left: 0;
+      }
+
+      /* FAQ */
+      .faq {
+        background: white;
+      }
+
+      .faq-list {
+        margin-top: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .faq-item {
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+
+      .faq-question {
+        padding: 1.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        background: var(--light-gray);
+      }
+
+      .faq-answer {
+        padding: 1.5rem;
+        color: var(--gray-600);
+      }
+
+      /* Final CTA */
+      .final-cta {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        text-align: center;
+        padding: 80px 0;
+      }
+
+      .final-cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .final-cta p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .final-cta .cta-button {
+        background: white;
+        color: var(--primary-color);
+        margin: 0 1rem;
+      }
+
+      .final-cta .cta-button.secondary {
+        background: transparent;
+        color: white;
+        border-color: white;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--text-color);
+        color: white;
+        padding: 60px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .footer-section a {
+        color: #94a3b8;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #374151;
+        color: #94a3b8;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .nav-menu {
+          gap: 1.5rem;
+        }
+
+        .nav-menu a {
+          padding: 0.5rem;
+          font-size: 0.95rem;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .cta-button {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.95rem;
+        }
+
+        .hero {
+          padding: 140px 0 60px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 120px 0 60px;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .solution-grid,
+        .comparison,
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav-menu {
+          display: none;
+        }
+
+        .nav-content {
+          padding: 0 15px;
+          gap: 0.5rem;
+        }
+
+        .lang-switcher {
+          gap: 0.25rem;
+        }
+
+        .lang-link {
+          padding: 0.4rem 0.5rem;
+          font-size: 0.85rem;
+        }
+
+        .logo {
+          font-size: 1.3rem;
+        }
+
+        .cta-button {
+          padding: 0.6rem 1rem;
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AgentWork",
+      "applicationCategory": "ProductivityApplication",
+      "description": "AI Agent-powered personal productivity platform that lets everyone build their own AI team",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "0",
+        "highPrice": "999",
+        "priceCurrency": "CNY",
+        "offerCount": "3"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "12538"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="/en/" class="logo">AgentWork</a>
+        <ul class="nav-menu">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#docs">Docs</a></li>
+          <li><a href="#login">Sign In</a></li>
+        </ul>
+        <div class="lang-switcher">
+          <a href="/en/" class="lang-link active">EN</a>
+          <span class="lang-separator">|</span>
+          <a href="/" class="lang-link">中文</a>
+        </div>
+        <a href="#trial" class="cta-button">Start Free Trial</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Build Your Own AI Team</h1>
+        <p class="subtitle">Stop Being Passive in Meetings. Redefine Your Work with AI Agents</p>
+        <p class="description">Send AI to meetings for you, delegate tasks to AI, transform from "task executor" to "AI team manager"</p>
+
+        <div class="hero-buttons">
+          <a href="#" class="cta-button">Start Free</a>
+          <a href="#" class="cta-button secondary">Watch Demo</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">12,538+</div>
+            <div>Users</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50,000+</div>
+            <div>Hours Saved</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">They're No Longer Attending Meetings in Person</h2>
+        <div class="testimonials">
+          <div class="testimonial">
+            <div class="testimonial-author">👤 Wei Zhang | Product Manager</div>
+            <div class="testimonial-role">@ A Tech Company</div>
+            <p>"12 meetings per week were overwhelming me. Now I send AI Agents to meetings and focus on product design. Productivity up 40%."</p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-author">👤 Na Li | Marketing Operations</div>
+            <div class="testimonial-role">@ An E-commerce Platform</div>
+            <p>"I created 5 Agents to handle copywriting, data analysis, and customer service. Now I feel like a small team leader."</p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-author">👤 Peng Wang | Tech Lead</div>
+            <div class="testimonial-role">@ A Startup</div>
+            <p>"Technical review meetings, requirement discussions... Agents can handle them all. I finally have time to code."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section problems">
+      <div class="container">
+        <h2 class="section-title">Are You Also Trapped in These Challenges?</h2>
+        <div class="problem-grid">
+          <div class="problem-card">
+            <div class="problem-icon">⚠️</div>
+            <h3 class="problem-title">Meeting Hell</h3>
+            <p>10+ meetings per week<br>80% time in meetings<br>Less than 20% actual work time</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">⚠️</div>
+            <h3 class="problem-title">Always Taking Orders</h3>
+            <p>Managers meet and assign tasks<br>You can only passively accept<br>No room to push back</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">⚠️</div>
+            <h3 class="problem-title">Repetitive Work</h3>
+            <p>60% work is mechanical repetition<br>Creative work gets compressed<br>Career growth stagnates</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="section solutions" id="features">
+      <div class="container">
+        <h2 class="section-title">How AgentWork Changes Everything</h2>
+        <div class="solution-grid">
+          <div class="solution-card">
+            <div class="solution-icon">🤖</div>
+            <h3 class="solution-title">Send AI Agents to Meetings for You</h3>
+            <ul>
+              <li>AI Agent attends meetings on your behalf</li>
+              <li>Real-time recording and understanding</li>
+              <li>Auto-extract action items and key decisions</li>
+              <li>Generate structured meeting notes</li>
+            </ul>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon">🏭</div>
+            <h3 class="solution-title">Create Your AI Team in 5 Minutes</h3>
+            <ul>
+              <li>Choose role templates (copywriting, data, PM...)</li>
+              <li>Upload knowledge docs to train Agent</li>
+              <li>Configure tool capabilities</li>
+              <li>Deploy with one click</li>
+            </ul>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon">🗣️</div>
+            <h3 class="solution-title">Proactively Convene AI Discussions</h3>
+            <ul>
+              <li>No more passive waiting for meetings</li>
+              <li>Summon your AI team anytime</li>
+              <li>Multi-Agent collaborative discussions</li>
+              <li>Rapidly generate solutions</li>
+            </ul>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon">📊</div>
+            <h3 class="solution-title">Manage Work Like a Manager</h3>
+            <ul>
+              <li>Visual task board</li>
+              <li>Upstream tasks (receive) vs Downstream tasks (assign)</li>
+              <li>Track Agent work progress in real-time</li>
+              <li>Manual intervention at key decision points</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section use-cases">
+      <div class="container">
+        <h2 class="section-title">Real Scenarios, Real Results</h2>
+        <h3 style="text-align: center; margin-bottom: 2rem; color: var(--gray-600)">A Day in the Life of Product Manager David</h3>
+        <div class="comparison">
+          <div class="timeline before">
+            <h3>Before AgentWork</h3>
+            <div class="timeline-item">
+              <span>8:30 - Weekly Meeting</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>9:30 - Requirements Review</span>
+              <span>1.5h</span>
+            </div>
+            <div class="timeline-item">
+              <span>11:00 - Cross-team Coordination</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>12:00 - Lunch Break</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>13:00 - Technical Discussion</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>14:00 - Work on Requirements</span>
+              <span>2h</span>
+            </div>
+            <div class="timeline-item">
+              <span>16:00 - Customer Feedback Review</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>17:00 - Prepare Presentation</span>
+              <span>2h</span>
+            </div>
+            <div class="timeline-item">
+              <span>19:00 - Overtime Goes Home</span>
+              <span></span>
+            </div>
+            <div class="timeline-result">6 hours in meetings, only 3 hours of actual work</div>
+          </div>
+
+          <div class="timeline after">
+            <h3>After AgentWork</h3>
+            <div class="timeline-item">
+              <span>8:30 - Review AI Meeting Notes</span>
+              <span>15min</span>
+            </div>
+            <div class="timeline-item">
+              <span>8:45 - Assign Tasks to Agents</span>
+              <span>20min</span>
+            </div>
+            <div class="timeline-item">
+              <span>9:05 - Deep Work: Product Design</span>
+              <span>3h</span>
+            </div>
+            <div class="timeline-item">
+              <span>12:00 - Lunch Break</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>13:00 - Deep Work: User Research</span>
+              <span>2h</span>
+            </div>
+            <div class="timeline-item">
+              <span>15:00 - Review Agent Output</span>
+              <span>1h</span>
+            </div>
+            <div class="timeline-item">
+              <span>16:00 - Key Decisions & Creative Work</span>
+              <span>2h</span>
+            </div>
+            <div class="timeline-item">
+              <span>18:00 - Leave On Time</span>
+              <span></span>
+            </div>
+            <div class="timeline-result">5 hours deep work, 2 hours managing Agents, leave on time</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="section metrics">
+      <div class="container">
+        <h2 class="section-title">Numbers Speak for Themselves</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-number">50%</div>
+            <div class="metric-title">Meeting Time Saved</div>
+            <div class="metric-description">Users save an average of 6 hours per week</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">3x</div>
+            <div class="metric-title">Productivity Boost</div>
+            <div class="metric-description">Deep work time increased by 3x</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">12,538+</div>
+            <div class="metric-title">Active Users</div>
+            <div class="metric-description">12,538 professionals have freed their hands</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">83%</div>
+            <div class="metric-title">Paid Conversion Rate</div>
+            <div class="metric-description">83% choose to pay after trial</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <h2 class="section-title">Choose Your Plan</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Free Plan</h3>
+            <div class="price">¥0<span class="price-unit">/month</span></div>
+            <p>For: Product Trial</p>
+            <ul class="pricing-features">
+              <li>1 Agent</li>
+              <li>1 Meeting/Week</li>
+              <li>Basic Task Management</li>
+              <li>Community Support</li>
+            </ul>
+            <a href="#" class="cta-button">Start Free</a>
+          </div>
+
+          <div class="pricing-card popular">
+            <div class="popular-badge">⭐ Recommended</div>
+            <h3>Professional</h3>
+            <div class="price">¥199<span class="price-unit">/month</span></div>
+            <p>For: Individual Users</p>
+            <ul class="pricing-features">
+              <li>5 Agents</li>
+              <li>Unlimited Meetings</li>
+              <li>Complete Task Orchestration</li>
+              <li>Reverse Meeting Room</li>
+              <li>Knowledge Base (500MB)</li>
+              <li>Email Support</li>
+            </ul>
+            <a href="#" class="cta-button">Subscribe Now</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Team Plan</h3>
+            <div class="price">¥999<span class="price-unit">/month</span></div>
+            <p>For: Small Teams</p>
+            <ul class="pricing-features">
+              <li>20 Agents</li>
+              <li>Cross-team Agent Collaboration</li>
+              <li>Team Task Board</li>
+              <li>Knowledge Base (5GB)</li>
+              <li>Priority Support</li>
+              <li>Custom Training</li>
+            </ul>
+            <a href="#" class="cta-button">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">Can AI Agents really attend meetings for me?</div>
+            <div class="faq-answer">
+              Yes, AgentWork's AI Agents can join various meeting platforms (Zoom, Tencent Meeting, Feishu, etc.), record meeting content in real-time, understand key discussion points, and automatically extract action items. The Agent joins as "XXX's AI Assistant" to ensure transparency.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Is my meeting content secure?</div>
+            <div class="faq-answer">
+              We use enterprise-grade security standards. All meeting content is transmitted and stored with end-to-end encryption. You can choose data storage regions and delete all meeting records at any time. We strictly comply with data protection regulations.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Do I need technical knowledge to use it?</div>
+            <div class="faq-answer">
+              Not at all! AgentWork is designed for regular users with a visual Agent creation interface. You can create your dedicated AI assistant in just 5 minutes. We also provide detailed tutorials and customer support.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Can it integrate with our company systems?</div>
+            <div class="faq-answer">
+              Yes! We support integration with mainstream office software including Feishu, DingTalk, WeChat Work, Slack, Microsoft Teams, etc. Enterprise plans also offer API interfaces and custom integration services.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">How do I cancel my subscription?</div>
+            <div class="faq-answer">
+              You can cancel your subscription anytime in account settings with no fees. After cancellation, you can continue using until the current billing period ends, then automatically downgrade to the free plan.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Is there a free trial period?</div>
+            <div class="faq-answer">
+              Yes! We offer a free plan to experience core features, and paid plans come with a 14-day free trial. During the trial, you can use all features without limits. Pay only when satisfied.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <h2>Stop Being Just the End of the Task Chain</h2>
+        <p>Join 12,538 users and start managing your AI team</p>
+        <div>
+          <a href="#" class="cta-button">Start Free</a>
+          <a href="#" class="cta-button secondary">Schedule Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Product</h4>
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Changelog</a>
+            <a href="#">Roadmap</a>
+          </div>
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <a href="#">Documentation</a>
+            <a href="#">API Docs</a>
+            <a href="#">Blog</a>
+            <a href="#">Case Studies</a>
+          </div>
+          <div class="footer-section">
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <div class="footer-section">
+            <h4>Social Media</h4>
+            <a href="#">WeChat</a>
+            <a href="#">Zhihu</a>
+            <a href="#">Xiaohongshu</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-bottom">© 2025 AgentWork. Build Your Own AI Team</div>
+      </div>
+    </footer>
+
+
+</body></html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Chinese Homepage -->
+  <url>
+    <loc>https://agentwork.me/</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentwork.me/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agentwork.me/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentwork.me/en/"/>
+  </url>
+
+  <!-- English Homepage -->
+  <url>
+    <loc>https://agentwork.me/en/</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentwork.me/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agentwork.me/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentwork.me/en/"/>
+  </url>
+
+  <!-- Chinese Features -->
+  <url>
+    <loc>https://agentwork.me/#features</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentwork.me/en/#features"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agentwork.me/#features"/>
+  </url>
+
+  <!-- English Features -->
+  <url>
+    <loc>https://agentwork.me/en/#features</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentwork.me/en/#features"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agentwork.me/#features"/>
+  </url>
+
+  <!-- Chinese Solutions -->
+  <url>
+    <loc>https://agentwork.me/#solutions</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentwork.me/en/#solutions"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agentwork.me/#solutions"/>
+  </url>
+
+  <!-- English Solutions -->
+  <url>
+    <loc>https://agentwork.me/en/#solutions</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentwork.me/en/#solutions"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agentwork.me/#solutions"/>
+  </url>
+
+  <!-- Chinese Pricing -->
+  <url>
+    <loc>https://agentwork.me/#pricing</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentwork.me/en/#pricing"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agentwork.me/#pricing"/>
+  </url>
+
+  <!-- English Pricing -->
+  <url>
+    <loc>https://agentwork.me/en/#pricing</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentwork.me/en/#pricing"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agentwork.me/#pricing"/>
+  </url>
+
+</urlset>
